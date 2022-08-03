@@ -17,7 +17,7 @@ class NftDetailed extends StatefulWidget {
 }
 
 class _NftDetailedState extends State<NftDetailed> {
-  final NftPageController _controller = Get.put(NftPageController());
+  NftPageController _controller = Get.put(NftPageController());
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -26,7 +26,7 @@ class _NftDetailedState extends State<NftDetailed> {
           child: Container(
             height: 1.height,
             width: 1.width,
-            padding: const EdgeInsets.symmetric(horizontal: 24),
+            padding: EdgeInsets.symmetric(horizontal: 24),
             child: Column(
               children: [
                 NaanAppBar(
@@ -36,7 +36,7 @@ class _NftDetailedState extends State<NftDetailed> {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 0),
+                    padding: EdgeInsets.symmetric(horizontal: 0),
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
@@ -90,7 +90,7 @@ class _NftDetailedState extends State<NftDetailed> {
                         child: Text(
                           "Details",
                           style: _controller.currentSelectedTab.value != 0
-                              ? bold16.copyWith(color: ColorConst.textGrey1)
+                              ? bold16.copyWith(color: textGrey1)
                               : bold16,
                         ),
                       ),
@@ -116,7 +116,7 @@ class _NftDetailedState extends State<NftDetailed> {
                         child: Text(
                           "Activity",
                           style: _controller.currentSelectedTab.value != 1
-                              ? bold16.copyWith(color: ColorConst.textGrey1)
+                              ? bold16.copyWith(color: textGrey1)
                               : bold16,
                         ),
                       ),
@@ -132,7 +132,7 @@ class _NftDetailedState extends State<NftDetailed> {
                   duration: _controller.duration,
                   height: 2,
                   width: _controller.listOfWidth[0],
-                  color: ColorConst.textGrey1,
+                  color: textGrey1,
                 ),
                 Expanded(
                   child: Container(
@@ -145,7 +145,7 @@ class _NftDetailedState extends State<NftDetailed> {
                   duration: _controller.duration,
                   height: 2,
                   width: _controller.listOfWidth[2],
-                  color: ColorConst.textGrey1,
+                  color: textGrey1,
                 ),
               ],
             ),
@@ -243,7 +243,7 @@ class _NftDetailedState extends State<NftDetailed> {
               //creator details
               Container(
                 height: 60,
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+                padding: EdgeInsets.symmetric(horizontal: 16),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   gradient: appleBlack,
@@ -279,10 +279,10 @@ class _NftDetailedState extends State<NftDetailed> {
                         ),
                       ],
                     ),
-                    const Spacer(),
+                    Spacer(),
                     Container(
                       height: 24,
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      padding: EdgeInsets.symmetric(horizontal: 8),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(24),
                         color: Colors.white.withOpacity(0.2),
@@ -323,10 +323,10 @@ class _NftDetailedState extends State<NftDetailed> {
           Row(
             children: [
               Text(
-                "$type  ",
+                type + "  ",
                 style: body12,
               ),
-              const Icon(
+              Icon(
                 Icons.circle,
                 size: 4,
                 color: Colors.white,
@@ -339,7 +339,7 @@ class _NftDetailedState extends State<NftDetailed> {
                 tz1Shortner(tz1),
                 style: body12,
               ),
-              const Spacer(),
+              Spacer(),
               Text(
                 "$tez xtz",
                 style: body12,
@@ -349,16 +349,16 @@ class _NftDetailedState extends State<NftDetailed> {
           Row(
             children: [
               Text(
-                "${dateTime.day} hourse ago  ",
+                dateTime.day.toString() + " hourse ago  ",
                 style: bodyMedium10,
               ),
-              const Icon(
+              Icon(
                 Icons.circle,
                 size: 4,
-                color: ColorConst.grey,
+                color: grey,
               ),
               Text(
-                "  ${quanity}x",
+                "  " + quanity.toString() + "x",
                 style: bodyMedium10,
               ),
             ],

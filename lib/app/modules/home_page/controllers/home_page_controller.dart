@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:naan_wallet/app/routes/app_pages.dart';
 import 'package:naan_wallet/mock/mock_data.dart';
-
-import '../../../routes/app_pages.dart';
 
 class HomePageController extends GetxController {
   HomePageController() {
@@ -29,11 +28,16 @@ class HomePageController extends GetxController {
   }
 
   @override
+  void onReady() {
+    super.onReady();
+  }
+
+  @override
   void onClose() {}
 
-  void startNFTChangeTimer() {
-    Future.delayed(const Duration(seconds: 3), () {
-      if (currentNFTIndex.value == listOfNFTTokens.length - 1) {
+  startNFTChangeTimer() {
+    Future.delayed(Duration(seconds: 3), () {
+      if (currentNFTIndex == listOfNFTTokens.length - 1) {
         currentNFTIndex.value = 0;
         startNFTChangeTimer();
       } else {

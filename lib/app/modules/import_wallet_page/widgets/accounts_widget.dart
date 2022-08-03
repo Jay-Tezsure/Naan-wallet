@@ -20,17 +20,16 @@ class _AccountWidgetState extends State<AccountWidget> {
       children: [
         expanded
             ? Expanded(
-                flex: 1,
                 child: Container(
                   width: double.infinity,
-                  padding: const EdgeInsets.only(top: 12, left: 12, right: 12),
+                  padding: EdgeInsets.only(top: 12, left: 12, right: 12),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
                     color: ColorConst.NeutralVariant.shade60.withOpacity(0.2),
                   ),
                   child: ListView.separated(
                     itemBuilder: (context, index) => accountWidget(),
-                    separatorBuilder: (context, index) => const Divider(
+                    separatorBuilder: (context, index) => Divider(
                         color: Color(0xff4a454e), height: 1, thickness: 1),
                     itemCount: 100,
                     shrinkWrap: true,
@@ -39,7 +38,7 @@ class _AccountWidgetState extends State<AccountWidget> {
               )
             : Container(
                 width: double.infinity,
-                padding: const EdgeInsets.only(top: 12, left: 12, right: 12),
+                padding: EdgeInsets.only(top: 12, left: 12, right: 12),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   color: ColorConst.NeutralVariant.shade60.withOpacity(0.2),
@@ -55,7 +54,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                     if (!expanded)
                       Column(
                         children: [
-                          const Divider(
+                          Divider(
                             color: Color(0xff4a454e),
                             height: 1,
                             thickness: 1,
@@ -81,7 +80,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                   ],
                 ),
               ),
-        if (!expanded) const Spacer()
+        if (!expanded) Spacer()
       ],
     );
   }
@@ -92,24 +91,25 @@ class _AccountWidgetState extends State<AccountWidget> {
       height: 84,
       child: Row(
         children: [
-          const CircleAvatar(
+          CircleAvatar(
             radius: 30,
           ),
-          20.hspace,
-          RichText(
-            text: TextSpan(
-              text: "tz1...qfDZg\n",
-              style: bodySmall,
-              children: [
-                WidgetSpan(child: 25.vspace),
-                TextSpan(
-                  text: "20 tez",
-                  style: bodyLarge,
-                )
-              ],
-            ),
+          0.05.hspace,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "tz1...qfDZg\n",
+                style: bodySmall,
+              ),
+              Text(
+                "20 tez",
+                style: bodyLarge,
+              ),
+            ],
           ),
-          const Spacer(),
+          Spacer(),
           Material(
             color: Colors.transparent,
             child: Checkbox(
@@ -117,7 +117,7 @@ class _AccountWidgetState extends State<AccountWidget> {
               onChanged: (value) {},
               checkColor: Colors.white,
               fillColor: MaterialStateProperty.all(Colors.white),
-              side: const BorderSide(color: Colors.white, width: 1),
+              side: BorderSide(color: Colors.white, width: 1),
             ),
           )
         ],

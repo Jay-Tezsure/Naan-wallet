@@ -8,19 +8,17 @@ class NaanAppBar extends StatelessWidget {
   final String? pageName, backButtonName;
 
   /// App bar with back button and page name
-  const NaanAppBar(
-      {Key? key,
-      required this.onBack,
+  NaanAppBar(
+      {required this.onBack,
       required this.pageName,
-      required this.backButtonName})
-      : super(key: key);
+      required this.backButtonName});
 
   @override
   Widget build(BuildContext context) => GestureDetector(
         onTap: () {
           onBack!();
         },
-        child: SizedBox(
+        child: Container(
           height: 40,
           width: 1.width,
           child: Stack(
@@ -30,13 +28,13 @@ class NaanAppBar extends StatelessWidget {
                 bottom: 0,
                 child: Container(
                   height: 40,
-                  padding: const EdgeInsets.only(right: 12),
+                  padding: EdgeInsets.only(right: 12),
                   color: Colors.transparent,
                   child: Row(
                     children: [
-                      const Icon(
+                      Icon(
                         Icons.arrow_back_ios_outlined,
-                        color: ColorConst.blue,
+                        color: blue,
                         size: 16,
                       ),
                       Text(

@@ -1,17 +1,23 @@
 import 'package:get/get.dart';
 
-import '../../../routes/app_pages.dart';
-
 class CreateProfilePageController extends GetxController {
-  final isWalletCreated = false.obs;
+  //TODO: Implement CreateProfilePageController
 
-  /// To show wallet success animation and redirect to backup wallet page
-  void onWalletSuccess() {
-    isWalletCreated.value = true;
-    Future.delayed(const Duration(milliseconds: 3500),
-            () => Get.offAllNamed(Routes.HOME_PAGE, arguments: [true]))
-        .whenComplete(
-      () => isWalletCreated.value = false,
-    );
+  final count = 0.obs;
+  @override
+  void onInit() {
+    super.onInit();
   }
+
+  @override
+  void onReady() {
+    super.onReady();
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
+  }
+
+  void increment() => count.value++;
 }
