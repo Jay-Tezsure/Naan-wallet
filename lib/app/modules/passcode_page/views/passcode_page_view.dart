@@ -7,7 +7,6 @@ import 'package:naan_wallet/app/routes/app_pages.dart';
 import 'package:naan_wallet/utils/colors/colors.dart';
 import 'package:naan_wallet/utils/constants/path_const.dart';
 import 'package:naan_wallet/utils/extensions/size_extension.dart';
-import 'package:naan_wallet/utils/material_Tap.dart';
 import 'package:naan_wallet/utils/styles/styles.dart';
 
 import '../controllers/passcode_page_controller.dart';
@@ -19,44 +18,44 @@ class PasscodePageView extends GetView<PasscodePageController> {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(gradient: GradConst.GradientBackground),
-        // width: 1.width,
+        width: 1.width,
+        height: 1.height,
         padding: const EdgeInsets.symmetric(horizontal: 21),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            0.05.vspace,
+            30.vspace,
             Align(
               alignment: Alignment.centerLeft,
               child: backButton(),
             ),
-            0.05.vspace,
+            20.vspace,
             Center(
               child: SizedBox(
                 height: 0.27.width,
                 width: 0.27.width,
                 child: SvgPicture.asset(
-                  PathConst.SVG + "naan_logo.svg",
+                  "${PathConst.SVG}naan_logo.svg",
                   fit: BoxFit.fitHeight,
                 ),
               ),
             ),
-            0.05.vspace,
+            30.vspace,
             Text(
               "Set passcode",
               textAlign: TextAlign.center,
               style: titleMedium,
             ),
-            0.01.vspace,
+            8.vspace,
             Text(
               "Protect your wallet by setting a passcode",
               style: bodySmall.apply(color: ColorConst.NeutralVariant.shade60),
             ),
-            0.05.vspace,
+            30.vspace,
             PassCodeWidget(onChanged: (value) {
               if (value.length == 6) {
                 Get.toNamed(Routes.BIOMETRIC_PAGE);
               }
-              print(value);
             })
           ],
         ),
@@ -102,7 +101,7 @@ class _PassCodeWidgetState extends State<PassCodeWidget> {
             ),
           ),
         ),
-        0.05.vspace,
+        30.vspace,
         getKeyBoardWidget(),
       ],
     );

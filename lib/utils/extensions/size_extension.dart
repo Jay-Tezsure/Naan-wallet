@@ -9,10 +9,10 @@ extension SizeExtension on num {
   double get sp => this * (Get.width / 4) / 100;
 
   SizedBox get vspace => SizedBox(
-        height: height.toDouble(),
+        height: toDouble(),
       );
 
   SizedBox get hspace => SizedBox(
-        width: width.toDouble(),
+        width: toDouble(),
       );
 }

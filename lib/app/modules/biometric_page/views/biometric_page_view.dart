@@ -17,14 +17,14 @@ class BiometricPageView extends GetView<BiometricPageController> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(gradient: GradConst.GradientBackground),
+      decoration: const BoxDecoration(gradient: GradConst.GradientBackground),
       width: 1.width,
-      padding: EdgeInsets.symmetric(horizontal: 0.05.width),
+      padding: const EdgeInsets.symmetric(horizontal: 32),
       child: Column(
         children: [
-          0.2.vspace,
-          SvgPicture.asset(PathConst.SVG + "fingerprint.svg"),
-          0.05.vspace,
+          156.vspace,
+          SvgPicture.asset("${PathConst.SVG}fingerprint.svg"),
+          51.vspace,
           Text(
             "Enable biometry unlock",
             style: titleLarge,
@@ -37,14 +37,12 @@ class BiometricPageView extends GetView<BiometricPageController> {
               color: ColorConst.NeutralVariant.shade60,
             ),
           ),
-          Spacer(),
-          SolidButton(
-            title: "Enable Biometry Unlock",
-            onPressed: () {},
-          ),
-          0.01.vspace,
-          GestureDetector(
-            onTap: () {
+          const Spacer(),
+          const SolidButton(title: "Enable Biometry Unlock"),
+          12.vspace,
+          materialTap(
+            inkwellRadius: 8,
+            onPressed: () {
               Get.toNamed(Routes.CREATE_PROFILE_PAGE);
             },
             child: Container(
