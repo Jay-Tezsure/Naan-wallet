@@ -8,7 +8,6 @@ import 'package:naan_wallet/utils/constants/path_const.dart';
 import 'package:naan_wallet/utils/extensions/size_extension.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:naan_wallet/utils/styles/styles.dart';
-import '../../../../utils/material_Tap.dart';
 import '../controllers/create_wallet_page_controller.dart';
 
 class CreateWalletPageView extends GetView<CreateWalletPageController> {
@@ -16,7 +15,12 @@ class CreateWalletPageView extends GetView<CreateWalletPageController> {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion(
-      value: const SystemUiOverlayStyle(
+      value: SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        systemNavigationBarDividerColor: Colors.transparent,
+        statusBarBrightness: Brightness.light,
+        statusBarIconBrightness: Brightness.dark,
+        systemNavigationBarIconBrightness: Brightness.dark,
         systemNavigationBarColor: Color(0xff2D004F),
       ),
       child: Container(
@@ -37,7 +41,9 @@ class CreateWalletPageView extends GetView<CreateWalletPageController> {
                 ).createShader(bounds);
               },
               child: SvgPicture.asset(
-                  "${PathConst.SVG}create_wallet_background.svg"),
+                "${PathConst.SVG}create_wallet_background.svg",
+                fit: BoxFit.fitWidth,
+              ),
             ),
             Align(
               alignment: Alignment.bottomCenter,
@@ -45,7 +51,7 @@ class CreateWalletPageView extends GetView<CreateWalletPageController> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 32),
+                    padding: EdgeInsets.symmetric(horizontal: 0.05.width),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -53,23 +59,23 @@ class CreateWalletPageView extends GetView<CreateWalletPageController> {
                           "Welcome to Naan Wallet",
                           style: titleLarge,
                         ),
-                        12.vspace,
+                        0.01.vspace,
                         Text(
                           "Naan is a fun, simple, and secure way to create a Tezos wallet, collect NFTs, and explore the new world of Web3 on Tezos.",
                           style: bodySmall.apply(
                             color: ColorConst.NeutralVariant.shade60,
                           ),
                         ),
-                        ((28 / 844) * 1.height).vspace,
+                        0.046.vspace,
                         SolidButton(
-                            title: "Create new wallet",
-                            onPressed: () {
-                              Get.toNamed(Routes.PASSCODE_PAGE);
-                            }),
-                        12.vspace,
-                        materialTap(
-                          inkwellRadius: 8,
+                          title: "Create new wallet",
                           onPressed: () {
+                            Get.toNamed(Routes.PASSCODE_PAGE);
+                          },
+                        ),
+                        0.0125.vspace,
+                        GestureDetector(
+                          onTap: () {
                             Get.toNamed(Routes.IMPORT_WALLET_PAGE);
                           },
                           child: Container(
@@ -77,17 +83,17 @@ class CreateWalletPageView extends GetView<CreateWalletPageController> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8),
                               border: Border.all(
-                                color: const Color(0xff8637eb),
+                                color: ColorConst.Neutral.shade80,
                                 width: 1.50,
                               ),
                             ),
                             alignment: Alignment.center,
                             child: Text("I already have a wallet",
                                 style: titleSmall.apply(
-                                    color: ColorConst.Primary)),
+                                    color: ColorConst.Neutral.shade80)),
                           ),
                         ),
-                        20.vspace,
+                        0.025.vspace,
                       ],
                     ),
                   ),
